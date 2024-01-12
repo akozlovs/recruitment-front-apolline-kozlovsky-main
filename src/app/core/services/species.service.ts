@@ -10,7 +10,6 @@ import { environment } from 'e2e/environment';
 
 export class SpeciesService {
   private apiUrl = environment.apiUrl+ '/species';
-  // private apiUrl = 'https://www.pokedexercice.ch/api/species';
 
   constructor(private http: HttpClient) { }
 
