@@ -1,0 +1,21 @@
+<div class="dialog">
+    <div *ngIf="loading" class="loading-indicator">
+        Identifying species...
+      </div>
+    <div class="dialog-content">
+        <form (ngSubmit)="submitForm()" #imageForm="ngForm">
+            <label for="imageInput">Upload Image:</label>
+            <input type="file" id="imageInput" name="image" ngModel required #imageInput/>
+            <div *ngIf="fileError" class="error-message">
+              Please choose a valid image.
+              {{ fileError }}
+            </div>
+        </form>
+    </div>
+    <div class="dialog-actions">
+        <button type="button" (click)="cancel()">Cancel</button>
+        <button type="submit" (click)="submitForm()" [disabled]="imageForm.invalid">Confirm</button>
+        <span (click)="cancel()" class="close-icon">X</span>
+    </div>
+
+  </div>

@@ -1,0 +1,41 @@
+<!-- <pre>{{ selectedSpecies | json }}</pre> -->
+
+<p *ngIf="speciesId">
+    <div *ngIf="selectedSpecies" class="selected-species">
+        <h2>{{ selectedSpecies.name | uppercase}}</h2>
+        <div class="property">
+          <span>ID:</span> {{ selectedSpecies.id }}
+        </div>
+        <div class="property">
+          <span>Name:</span> {{ selectedSpecies.name }}
+        </div>
+        <div class="property">
+            <span>Types:</span>
+            <ul>
+              <li *ngFor="let type of selectedSpecies.types">{{ type }}</li>
+            </ul>
+          </div>
+        
+          <div class="property">
+            <span>Description:</span> {{ selectedSpecies.description }}
+          </div>
+        
+          <div class="property">
+            <span>Image:</span>  {{ selectedSpecies.image }}
+            <img [src]="selectedSpecies.image" alt="Species Image">
+          </div>
+        
+          <div class="property">
+            <span>Genre:</span> {{ selectedSpecies.genre }}
+          </div>
+        
+          <div class="property">
+            <span>Weight:</span> {{ selectedSpecies.weight }} kg
+          </div>
+        
+          <div class="property">
+            <span>Height:</span> {{ selectedSpecies.height }} m
+          </div>
+        </div>
+    
+

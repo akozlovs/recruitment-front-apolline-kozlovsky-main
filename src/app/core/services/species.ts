@@ -1,9 +1,21 @@
 export interface Species {
     id: number,
     name: string,
-    url: string
+    types: string[];
+    description: string;
+    image: string;
+    genre: string;
+    weight: number;
+    height: number;
 }
 
 export interface SpeciesResponse {
-    results: Species[];
+    data: Species[];
+    page: number;
+    per_page: number;
   }
+
+export interface SpeciesResponseDetails {
+    data: Species;
+  }
+

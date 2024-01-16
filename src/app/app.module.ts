@@ -11,17 +11,22 @@ import { TrainerService } from '@core/services/trainer.service';
 import { TrainerState } from '@core/state/trainer';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsModule } from '@ngxs/store';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomePageComponent } from './core/components/home-page/home-page.component';
+import { DialogComponent } from './core/components/dialog/dialog.component';
+import { SpeciesDetailsComponent } from './core/components/species-details/species-details.component';
 
 @NgModule({
-  declarations: [AppComponent, ListSpeciesComponent],
+  declarations: [AppComponent, HomePageComponent, DialogComponent, SpeciesDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
 
     NgxsModule.forRoot([TrainerState], {
       developmentMode: isDevMode(),
@@ -29,7 +34,7 @@ import { AppComponent } from './app.component';
     NgxsReduxDevtoolsPluginModule.forRoot(),
 
     LayoutComponent,
-    DummyComponent,
+    ListSpeciesComponent
   ],
   providers: [AuthInterceptorProvider, AuthService, TrainerService],
   bootstrap: [AppComponent],

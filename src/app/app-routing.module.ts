@@ -4,12 +4,14 @@ import { DummyComponent } from '@core/components/dummy/dummy.component';
 import { LoginPageComponent } from '@modules/login/components/login-page/login-page.component';
 import { LoginModule } from '@modules/login/login.module';
 import { ListSpeciesComponent } from '@core/components/list-species/list-species.component';
+import { HomePageComponent } from '@core/components/home-page/home-page.component';
+import { SpeciesDetailsComponent } from '@core/components/species-details/species-details.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: DummyComponent,
+    component: HomePageComponent,
   },
   {
     path: 'login',
@@ -18,6 +20,10 @@ const routes: Routes = [
   {
     path: 'list',
     component: ListSpeciesComponent ,
+  },
+  {
+    path: 'species/:id',
+    component: SpeciesDetailsComponent ,
   },
 ];
 

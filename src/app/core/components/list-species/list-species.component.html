@@ -1,19 +1,30 @@
 
-<p>{{ speciesList | json}}</p>
-
-<!-- <div *ngIf="speciesList" class="species-list">
-    <p>boucle if</p>
-    <p>{{ speciesList | json}}</p>
-    <div *ngFor="let species of speciesList" class="species-card">
-        <p>boucle for</p>
-        <p>{{ species | json}}</p>
-    </div>
+<!-- <p>{{ speciesList | json}}</p> -->
+<!-- <div class="search-bar">
+    <input [(ngModel)]="searchValue" placeholder="Search species" (input)="search()">
   </div> -->
 
-  <!-- <div *ngIf="speciesList" class="species-list">
-    <div *ngFor="let species of speciesList" class="species-card">
-      <a [routerLink]="['/details', getIdFromUrl(species.url)]">
-        <p>{{ species.name }}</p>
-      </a>
+<div *ngIf="speciesList" class="species-list">
+    <!-- <p>test if speciesList</p> -->
+    <div *ngFor="let pokemon of speciesList" class="species-card">
+        <!-- <p>test for</p> -->
+        
+            <div [routerLink]="['/species', pokemon.id]" class="pokemon-image">
+                <img [src]="pokemon.image" alt="Pokemon Image">
+            </div>
+            <div class="pokemon-info">
+                <div class="property">
+                <span>ID:</span> {{ pokemon.id }}
+                </div>
+                <div class="property">
+                <span>Name:</span> {{ pokemon.name }}
+                </div>
+                
+                <div class="property">
+                <span>Image:</span> {{ pokemon.image }}
+                </div>
+            </div>  
+        
     </div>
-  </div> -->
+</div>
+

@@ -26,6 +26,7 @@ import { Store } from '@ngxs/store';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
 })
+
 export class LayoutComponent {
   store = inject(Store);
   dialog = inject(MatDialog);

@@ -1,0 +1,2 @@
+<button (click)="toggleDialog()">Open Dialog</button>
+<app-dialog *ngIf="isDialogOpen" (closeDialog)="toggleDialog()"></app-dialog>
