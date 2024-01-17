@@ -4,6 +4,8 @@
     <input [formControl]="searchControl" placeholder="Search species" #searchInput>
   </div>
 
+<div class="spacer"></div>
+
 <div *ngIf="speciesList" class="species-list">
     <!-- <p>test if speciesList</p> -->
     <div *ngFor="let pokemon of speciesList" class="species-card">
@@ -20,7 +22,7 @@
                 <span>Name:</span> {{ pokemon.name }}
                 </div>
                 
-                <div class="property">
+                <div class="property_image">
                 <span>Image:</span> {{ pokemon.image }}
                 </div>
             </div>  

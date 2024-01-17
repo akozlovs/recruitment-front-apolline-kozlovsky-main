@@ -43,7 +43,7 @@ export class DialogComponent {
       this.closeDialog.emit();
     } else {
       console.log(this.fileError = 'Invalid file type. Supported types are: jpg, jpeg, png, gif, svg');
-      this.loading = false; // Stop loading due to file error
+      this.loading = false;
   }
 
   } else {
@@ -55,4 +55,5 @@ export class DialogComponent {
       console.log('cancel')
       this.closeDialog.emit();
     }
+
 }

@@ -2,12 +2,12 @@
 
 <p *ngIf="speciesId">
     <div *ngIf="selectedSpecies" class="selected-species">
-        <h2>{{ selectedSpecies.name | uppercase}}</h2>
+        <h2>{{ selectedSpecies.name | titlecase}}</h2>
         <div class="property">
           <span>ID:</span> {{ selectedSpecies.id }}
         </div>
         <div class="property">
-          <span>Name:</span> {{ selectedSpecies.name }}
+          <span>Name:</span> {{ selectedSpecies.name | titlecase}}
         </div>
         <div class="property">
             <span>Types:</span>

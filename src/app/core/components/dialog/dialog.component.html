@@ -11,11 +11,13 @@
               {{ fileError }}
             </div>
         </form>
+
+        <div class="close-icon">
+            <span (click)="cancel()">X</span>
+        </div>
     </div>
     <div class="dialog-actions">
         <button type="button" (click)="cancel()">Cancel</button>
         <button type="submit" (click)="submitForm()" [disabled]="imageForm.invalid">Confirm</button>
-        <span (click)="cancel()" class="close-icon">X</span>
     </div>
-
   </div>

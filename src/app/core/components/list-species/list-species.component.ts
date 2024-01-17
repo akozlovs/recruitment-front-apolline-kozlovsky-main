@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { Species, SpeciesResponse } from '@core/services/species';
+import { Component, OnInit} from '@angular/core';
+import { Species} from '@core/services/species';
 import { SpeciesService } from '@core/services/species.service';
 import { RouterModule } from '@angular/router';
 import { NgIf, NgFor } from '@angular/common';
