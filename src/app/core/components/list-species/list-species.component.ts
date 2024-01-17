@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Species, SpeciesResponse } from '@core/services/species';
 import { SpeciesService } from '@core/services/species.service';
 import { RouterModule } from '@angular/router';
-import { AsyncPipe, NgIf, NgFor } from '@angular/common';
+import { NgIf, NgFor } from '@angular/common';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 
 @Component({
@@ -10,7 +12,9 @@ import { AsyncPipe, NgIf, NgFor } from '@angular/common';
   imports: [
     RouterModule,
     NgIf,
-    NgFor
+    NgFor,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   selector: 'app-list-species',
   templateUrl: './list-species.component.html',
@@ -19,21 +23,20 @@ import { AsyncPipe, NgIf, NgFor } from '@angular/common';
 
 export class ListSpeciesComponent implements OnInit {
   speciesList!: Species[];
-  searchValue: string = '';
+  searchControl = new FormControl();
 
   constructor(private speciesService: SpeciesService) { }
 
   ngOnInit(): void {
-    this.speciesService.getSpecies().subscribe(data => {
-      this.speciesList = data.data;
-    });
+    this.searchControl.valueChanges
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap(search => this.speciesService.getSpecies(search))
+      )
+      .subscribe(data => this.speciesList = data.data);
+
+    this.speciesService.getSpecies('').subscribe(data =>
+        this.speciesList = data.data);
   }
-
-  // search(): void {
-  //   this.speciesService.searchSpecies(this.searchValue).subscribe(data => this.speciesList = data);
-  // }
-
 }
-  
-
-

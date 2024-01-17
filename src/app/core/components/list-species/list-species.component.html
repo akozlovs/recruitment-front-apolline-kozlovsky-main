@@ -1,8 +1,8 @@
 
 <!-- <p>{{ speciesList | json}}</p> -->
-<!-- <div class="search-bar">
-    <input [(ngModel)]="searchValue" placeholder="Search species" (input)="search()">
-  </div> -->
+<div class="search-container">
+    <input [formControl]="searchControl" placeholder="Search species" #searchInput>
+  </div>
 
 <div *ngIf="speciesList" class="species-list">
     <!-- <p>test if speciesList</p> -->

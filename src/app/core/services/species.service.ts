@@ -13,8 +13,13 @@ export class SpeciesService {
 
   constructor(private http: HttpClient) { }
 
-  getSpecies(): Observable<SpeciesResponse> {
-    return this.http.get<SpeciesResponse>(`${environment.apiUrl}/species`);
+  getSpecies(search: string): Observable<SpeciesResponse> {
+    if (search === '') {
+      return this.http.get<SpeciesResponse>(`${environment.apiUrl}/species`);
+    } else {
+      return this.http.get<SpeciesResponse>(`${environment.apiUrl}/species?search=${search}`);
+    }
+    
   }
 
   identifyImage(formData: FormData): Observable<Species> {
