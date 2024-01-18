@@ -5,12 +5,14 @@ describe('List page', () => {
   beforeAll(fakeLogin);
 
   it('is plugged to the API and displays text data', async () => {
-    void page.goto(environment.appUrl);
+    void page.goto(`${environment.appUrl}/list`);
 
     const response = await hijackSpeciesResponse<SpeciesShort[]>(
       'GET',
       `${environment.apiUrl}/species`
     );
+
+    console.log('get')
 
     const bodyTextContent = await page.evaluate(() => document.body.textContent?.toLowerCase());
     for (const species of response.data) {
@@ -20,7 +22,7 @@ describe('List page', () => {
   });
 
   it('displays species images', async () => {
-    void page.goto(environment.appUrl);
+    void page.goto(`${environment.appUrl}/list`);
 
     const response = await hijackSpeciesResponse<SpeciesShort[]>(
       'GET',

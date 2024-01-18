@@ -4,7 +4,7 @@
       </div>
     <div class="dialog-content">
         <form (ngSubmit)="submitForm()" #imageForm="ngForm">
-            <label for="imageInput">Upload Image:</label>
+            <label for="imageInput">Put here an image of the pokemon you just discovered!</label>
             <input type="file" id="imageInput" name="image" ngModel required #imageInput/>
             <div *ngIf="fileError" class="error-message">
               Please choose a valid image.
