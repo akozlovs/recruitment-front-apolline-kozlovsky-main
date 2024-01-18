@@ -43,7 +43,7 @@ describe('Details page', () => {
 });
 
 async function navigateToPikachePage() {
-  await page.goto(environment.appUrl);
+  await page.goto(`${environment.appUrl}/list`);
 
   await page.$$eval('*', (elements) => {
     if (!elements) {

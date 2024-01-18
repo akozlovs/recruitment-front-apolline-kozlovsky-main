@@ -12,8 +12,6 @@ describe('List page', () => {
       `${environment.apiUrl}/species`
     );
 
-    console.log('get')
-
     const bodyTextContent = await page.evaluate(() => document.body.textContent?.toLowerCase());
     for (const species of response.data) {
       expect(bodyTextContent).toContain(species.id.toString());

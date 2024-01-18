@@ -19,6 +19,7 @@ import { DialogComponent } from './core/components/dialog/dialog.component';
 import { ListSpeciesComponent } from '@core/components/list-species/list-species.component';
 import { SpeciesDetailsComponent } from './core/components/species-details/species-details.component';
 
+
 @NgModule({
   declarations: [AppComponent, HomePageComponent, DialogComponent, SpeciesDetailsComponent],
   imports: [

@@ -1,5 +1,4 @@
 
-<!-- <p>{{ speciesList | json}}</p> -->
 <div class="search-container">
     <input [formControl]="searchControl" placeholder="Search species" #searchInput>
   </div>
@@ -7,13 +6,10 @@
 <div class="spacer"></div>
 
 <div *ngIf="speciesList" class="species-list">
-    <!-- <p>test if speciesList</p> -->
     <div *ngFor="let pokemon of speciesList" class="species-card">
-        <!-- <p>test for</p> -->
-        
-            <div [routerLink]="['/species', pokemon.id]" class="pokemon-image">
+            <a [routerLink]="['/species', pokemon.id]" class="pokemon-image">
                 <img [src]="pokemon.image" alt="Pokemon Image">
-            </div>
+            </a>
             <div class="pokemon-info">
                 <div class="property">
                 <span>ID:</span> {{ pokemon.id }}
@@ -26,7 +22,6 @@
                 <span>Image:</span> {{ pokemon.image }}
                 </div>
             </div>  
-        
     </div>
 </div>
 

@@ -25,7 +25,7 @@ export async function fakeLogin() {
   await page.goto(environment.appUrl);
 
   await page.evaluate(() => {
-    window.localStorage.setItem('a2ee64606dab57d63b11be0e96f0d38b77c0537e41307083', 'fake-token');
+    window.localStorage.setItem('trainer-token', 'fake-login');
   });
 }
 

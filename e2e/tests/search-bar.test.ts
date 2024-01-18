@@ -5,7 +5,7 @@ describe('Search bar', () => {
   beforeAll(fakeLogin);
 
   it('can filter list', async () => {
-    void page.goto(environment.appUrl);
+    void page.goto(`${environment.appUrl}/list`);
 
     const initialResponse = await hijackSpeciesResponse<SpeciesShort[]>(
       'GET',
