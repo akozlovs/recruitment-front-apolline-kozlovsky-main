@@ -1,21 +1,56 @@
 body {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
     align-items: center;
     height: 100px;
-  }
   
-  button {
-    padding: 15px 20px;
-    font-size: 25px;
-    background-color: #D3302F;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    outline: none;
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #D3302F;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      outline: none;
+      transition: background-color 0.3s ease, transform 0.2s; 
+    
+      &:hover {
+        background-color: darkred;
+        transform: scale(1.05); 
+      }
+    
+      &:active {
+        transform: scale(0.95); 
+      }
+    }
   }
-  
-  button:hover {
-    background-color: darkred;
+
+  .notification-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 400px;
+
+    .notification {
+      background-color: rgb(119, 180, 119);
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .close-icon {
+      margin-left: 20px;
+      cursor: pointer;
+      font-size: 20px;
+    }
   }

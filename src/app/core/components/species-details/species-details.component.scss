@@ -1,36 +1,47 @@
+
 .selected-species {
-    margin: 20px;
-  
-    h2 {
-      color: #333;
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-  
-    .property {
-      margin-bottom: 10px;
-  
-      span {
-        font-weight: bold;
-        margin-right: 5px;
-        color: #D3302F;
-      }
-  
-      ul {
-        list-style-type: none;
-        padding: 0;
-  
-        li {
-          margin-left: 20px;
-        }
-      }
-  
-      img {
-        max-width: 100%;
-        max-height: 200px;
-        border-radius: 8px;
-        margin-right: 70%;
-      }
-    }
+  margin: 20px;
+  background-color: #f4f4f4; 
+  border-radius: 8px; // Coins arrondis
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+  h2 {
+    color: #333;
+    font-size: 26px;
+    margin-bottom: 15px;
   }
 
+  .property {
+    margin-bottom: 15px;
+    color: #444; // Couleur plus foncée pour améliorer la lisibilité
+
+    span {
+      font-weight: bold;
+      margin-right: 10px;
+      color: #D3302F;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        background-color: #e0e0e0; // Fond pour chaque élément de liste
+        border-radius: 4px;
+        padding: 5px 10px;
+        display: inline-block; // Affichage en ligne pour une apparence de tag
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+    }
+
+    img {
+      display: block; // Assurez que l'image ne soit pas inline
+      max-width: 100%;
+      max-height: 200px;
+      border-radius: 8px;
+      margin-top: 10px; // Marge au-dessus de l'image
+    }
+  }
+}

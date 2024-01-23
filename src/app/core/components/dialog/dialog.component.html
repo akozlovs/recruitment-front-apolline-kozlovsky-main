@@ -2,6 +2,9 @@
     <div *ngIf="loading" class="loading-indicator">
         Identifying species...
       </div>
+    <div class="close-icon">
+        <span (click)="cancel()">x</span>
+    </div>
     <div class="dialog-content">
         <form (ngSubmit)="submitForm()" #imageForm="ngForm">
             <label for="imageInput">Put here an image of the pokemon you just discovered!</label>
@@ -11,10 +14,6 @@
               {{ fileError }}
             </div>
         </form>
-
-        <div class="close-icon">
-            <span (click)="cancel()">X</span>
-        </div>
     </div>
     <div class="dialog-actions">
         <button type="button" (click)="cancel()">Cancel</button>

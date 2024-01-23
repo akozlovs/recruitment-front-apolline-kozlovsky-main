@@ -1,5 +1,6 @@
 import { Component,EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 import { SpeciesService } from '@core/services/species.service';
+import { NotificationService } from '@core/services/notification.service';
 import { Species } from '@core/services/species';
 
 @Component({
@@ -14,7 +15,7 @@ export class DialogComponent {
   loading: boolean = false;
   fileError: string | null = null;
 
-  constructor(private speciesService: SpeciesService) {}
+  constructor(private speciesService: SpeciesService, private notificationService: NotificationService) {}
 
   submitForm() {
     this.loading = true;
@@ -33,13 +34,14 @@ export class DialogComponent {
           response => {
             this.speciesService.addSpeciesToList(response);
             this.loading = false;
+            this.notificationService.showNotification('Pokemon added to the list!');
           },
 
           error => {
             console.error('API Error:', error);
             this.loading = false; 
           },
-      );
+        );
       this.closeDialog.emit();
     } else {
       console.log(this.fileError = 'Invalid file type. Supported types are: jpg, jpeg, png, gif, svg');

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NotificationService } from '@core/services/notification.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,6 +8,19 @@ import { Component } from '@angular/core';
 })
 export class HomePageComponent {
   isDialogOpen = false;
+  notificationMessage: string | null = null;
+
+  constructor(private notificationService: NotificationService) {}
+
+  ngOnInit() {
+    this.notificationService.notification$.subscribe(message => {
+      this.notificationMessage = message;
+    });
+  }
+  
+  closeNotification() {
+    this.notificationService.closeNotification();
+  }
 
   toggleDialog() {
     this.isDialogOpen = !this.isDialogOpen;
