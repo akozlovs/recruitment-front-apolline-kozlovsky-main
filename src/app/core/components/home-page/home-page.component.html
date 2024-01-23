@@ -8,5 +8,6 @@
         {{ notificationMessage }}
         <span class="close-icon" (click)="closeNotification()">×</span>
       </div>
+      <div *ngIf="loading" class="spinner"></div>
     </div>
 </body>

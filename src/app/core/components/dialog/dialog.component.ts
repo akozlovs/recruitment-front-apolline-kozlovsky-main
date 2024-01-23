@@ -12,14 +12,14 @@ import { Species } from '@core/services/species';
 export class DialogComponent {
   @Output() closeDialog = new EventEmitter<void>();
   @ViewChild('imageInput') imageInput!: ElementRef<HTMLInputElement>;
-  loading: boolean = false;
   fileError: string | null = null;
   imagePreview: string | ArrayBuffer | null = null;
 
   constructor(private speciesService: SpeciesService, private notificationService: NotificationService) {}
 
   submitForm() {
-    this.loading = true;
+    this.notificationService.showNotification('Loading...');
+    this.notificationService.setLoading(true);
     this.fileError = '';
 
     if (this.imageInput?.nativeElement.files && this.imageInput.nativeElement.files.length > 0) {
@@ -34,23 +34,24 @@ export class DialogComponent {
         this.speciesService.identifyImage(formData).subscribe(
           response => {
             this.speciesService.addSpeciesToList(response);
-            this.loading = false;
             this.notificationService.showNotification('Pokemon added to the list!');
+            this.notificationService.setLoading(false);
           },
 
           error => {
             console.error('API Error:', error);
-            this.loading = false; 
+            this.notificationService.setLoading(false);
           },
         );
       this.closeDialog.emit();
     } else {
       console.log(this.fileError = 'Invalid file type. Supported types are: jpg, jpeg, png, gif, svg');
-      this.loading = false;
+      this.notificationService.setLoading(false);
   }
 
   } else {
     console.error('No file selected.');
+    this.notificationService.setLoading(false);
   }
 }
 
