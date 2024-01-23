@@ -14,6 +14,7 @@ export class DialogComponent {
   @ViewChild('imageInput') imageInput!: ElementRef<HTMLInputElement>;
   loading: boolean = false;
   fileError: string | null = null;
+  imagePreview: string | ArrayBuffer | null = null;
 
   constructor(private speciesService: SpeciesService, private notificationService: NotificationService) {}
 
@@ -53,7 +54,28 @@ export class DialogComponent {
   }
 }
 
-  cancel() {
+//image preview
+
+onFileSelect(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    console.log(input);
+
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreview = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+clearImage(): void {
+    this.imagePreview = null;
+    this.imageInput.nativeElement.value = '';
+  }
+
+cancel() {
       console.log('cancel')
       this.closeDialog.emit();
     }

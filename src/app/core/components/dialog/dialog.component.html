@@ -6,9 +6,13 @@
         <span (click)="cancel()">x</span>
     </div>
     <div class="dialog-content">
-        <form (ngSubmit)="submitForm()" #imageForm="ngForm">
+        <form #imageForm="ngForm">
             <label for="imageInput">Put here an image of the pokemon you just discovered!</label>
-            <input type="file" id="imageInput" name="image" ngModel required #imageInput/>
+            <input type="file" id="imageInput" name="image" (change)="onFileSelect($event)" ngModel required #imageInput/>
+            <div *ngIf="imagePreview" class="image-preview">
+              <img [src]="imagePreview" alt="Preview Image">
+              <button type="button" (click)="clearImage()">Clear</button>
+            </div>
             <div *ngIf="fileError" class="error-message">
               Please choose a valid image.
               {{ fileError }}
