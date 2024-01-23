@@ -30,6 +30,7 @@ export async function fakeLogin() {
 }
 
 export async function hijackSpeciesResponse<T>(method: 'GET' | 'POST', url: string) {
+
   const rawResponse = await page.waitForResponse((res) => {
     return res.url() === url && res.request().method() === method;
   });

@@ -39,4 +39,8 @@ export class ListSpeciesComponent implements OnInit {
     this.speciesService.getSpecies('').subscribe(data =>
         this.speciesList = data.data);
   }
+
+  capitalizeFirstLetter(string: string): string {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 }

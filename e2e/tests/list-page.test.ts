@@ -6,6 +6,7 @@ describe('List page', () => {
 
   it('is plugged to the API and displays text data', async () => {
     void page.goto(`${environment.appUrl}/list`);
+    console.log(page.url()); //vérifie l'url --> affiche la page login....
 
     const response = await hijackSpeciesResponse<SpeciesShort[]>(
       'GET',
