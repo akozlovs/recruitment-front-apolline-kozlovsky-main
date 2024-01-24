@@ -1,13 +1,21 @@
 <body>
-    <div class="button-container">
-        <button (click)="toggleDialog()">Capture a Pokemon</button>
-        <app-dialog *ngIf="isDialogOpen" (closeDialog)="toggleDialog()"></app-dialog>
-    </div>
-    <div class="notification-container">
-    <div *ngIf="notificationMessage" class="notification">
-        {{ notificationMessage }}
-        <span class="close-icon" (click)="closeNotification()">×</span>
+    <div class="feuilles-container">
+        <div class="feuille-1" >
+            <img src="../../assets/feuille.png" alt="feuille Image">
+        </div>
+        <div class="feuille-2" >
+            <img src="../../assets/feuille-2.png" alt="feuille Image">
+        </div>
+        <div class="button-container">
+            <button (click)="toggleDialog()">Capture a Pokemon</button>
+            <app-dialog *ngIf="isDialogOpen" (closeDialog)="toggleDialog()"></app-dialog>
+        </div>
+        <div class="notification-container">
+            <div *ngIf="notificationMessage" class="notification">
+                {{ notificationMessage }}
+                <span class="close-icon" (click)="closeNotification()">×</span>
+              </div>
+              <div *ngIf="loading" class="spinner"></div>
+            </div>
       </div>
-      <div *ngIf="loading" class="spinner"></div>
-    </div>
 </body>

@@ -13,8 +13,10 @@ body {
     height: 100px;
   
     button {
+      z-index: 10;
       padding: 15px 30px;
       font-size: 18px;
+      font-weight: bold;
       background-color: #D3302F;
       color: white;
       border: none;
@@ -35,11 +37,12 @@ body {
   }
 
   .notification-container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    width: 400px;
+    height: 200px;
+    z-index: 10;
 
     .notification {
       background-color: rgb(119, 180, 119);
@@ -74,4 +77,48 @@ body {
     100% {
       transform: rotate(360deg);
     }
+  }
+
+  //feuilles
+
+  .feuilles-container{
+    position: absolute;
+    width: 30%;
+    height: 20%;
+  }
+  
+  .feuille-1 {
+    margin-left: 50px;
+    width: 200px;
+    height: 1%;
+    transition: transform 0.5s ease;
+    transform-origin: bottom right;
+
+    img{
+      width: 100%;
+    }
+  }
+
+  .feuille-2 {
+    margin-left: 160px;
+    width: 200px;
+    height: 30%;
+    transition: transform 0.5s ease;
+    transform-origin: bottom left;
+
+    img{
+      width: 100%;
+    }
+  }
+  
+  .feuilles-container:hover .feuille-1 {
+    transform: rotate(-20deg) translateX(-100px);
+  }
+  
+  .feuilles-container:hover .feuille-2 {
+    transform: rotate(20deg) translateX(100px);
+  }
+  
+  .feuilles-container:hover .button-container button {
+    z-index: 10; /* Devient cliquable et passe devant */
   }
