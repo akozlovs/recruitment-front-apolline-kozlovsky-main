@@ -14,7 +14,8 @@
 
   .property {
     margin-bottom: 15px;
-    color: #444; // Couleur plus foncée pour améliorer la lisibilité
+    color: #444;
+    word-wrap: break-word;
 
     span {
       font-weight: bold;
@@ -27,21 +28,21 @@
       padding: 0;
 
       li {
-        background-color: #e0e0e0; // Fond pour chaque élément de liste
+        background-color: #e0e0e0; 
         border-radius: 4px;
         padding: 5px 10px;
-        display: inline-block; // Affichage en ligne pour une apparence de tag
+        display: inline-block;
         margin-right: 5px;
         margin-bottom: 5px;
       }
     }
 
     img {
-      display: block; // Assurez que l'image ne soit pas inline
+      display: block;
       max-width: 100%;
       max-height: 200px;
       border-radius: 8px;
-      margin-top: 10px; // Marge au-dessus de l'image
+      margin-top: 10px;
     }
   }
 }

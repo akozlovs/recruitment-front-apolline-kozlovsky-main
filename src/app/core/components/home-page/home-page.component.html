@@ -10,12 +10,12 @@
             <button (click)="toggleDialog()">Capture a Pokemon</button>
             <app-dialog *ngIf="isDialogOpen" (closeDialog)="toggleDialog()"></app-dialog>
         </div>
-        <div class="notification-container">
-            <div *ngIf="notificationMessage" class="notification">
-                {{ notificationMessage }}
-                <span class="close-icon" (click)="closeNotification()">×</span>
-              </div>
-              <div *ngIf="loading" class="spinner"></div>
-            </div>
       </div>
+      <div class="notification-container">
+        <div *ngIf="notificationMessage" class="notification">
+            {{ notificationMessage }}
+            <span class="close-icon" (click)="closeNotification()">×</span>
+          </div>
+          <div *ngIf="loading" class="spinner"></div>
+        </div>
 </body>
